@@ -36,4 +36,7 @@ contract SimpleStorage{
     function addPerson(string memory _name, uint256 _myFavoriteNumber) public {
         listOfPeople.push(Person(_myFavoriteNumber, _name));
     }
+
+    //there are different types of storage forms calldata, memory and storage --> calldata and memory are short term memory
+    // but calldata can't be changed while memory can be changed. Storage saves long term and can't be changed.
 }
