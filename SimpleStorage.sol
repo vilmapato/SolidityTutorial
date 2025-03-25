@@ -1,8 +1,9 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.18;
+pragma solidity 0.8.24;
 
 contract SimpleStorage{
     // to define variables with a type it has to be define at the beginnig
+    // variable basic types: boolean, uint --> unsigned interger, int, address, bytes 
     bool isMyFavoriteNumber = true;
     // address myAddress = 00x0x00xsomewalletaddress;
     uint256 favoriteNumber;
@@ -32,9 +33,13 @@ contract SimpleStorage{
     //arrays work the same only difference is the dynamic way
     Person[] public listOfPeople;
 
+    // mapping is similar to python and JS but it does not iterate.. in solidity is a dictionary with a string along with a number
+    mapping(string => uint256) public nameToFavoriteNumber;
+
     //create a funct to populate the listofpeople and creating new person
     function addPerson(string memory _name, uint256 _myFavoriteNumber) public {
         listOfPeople.push(Person(_myFavoriteNumber, _name));
+        nameToFavoriteNumber[_name] = _myFavoriteNumber;
     }
 
     //there are different types of storage forms calldata, memory and storage --> calldata and memory are short term memory
